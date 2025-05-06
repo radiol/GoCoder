@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math"
 	"os"
 	"strconv"
@@ -9,6 +10,18 @@ import (
 )
 
 func main() {
+	n := nextInt()
+	a := nextInt()
+	t := nextInts(n)
+	ans := make([]int, n+1)
+	for i := 0; i < n; i++ {
+		ans[i+1] = max(ans[i], t[i]) + a
+	}
+	strAns := make([]string, n+1)
+	for i := 0; i < n; i++ {
+		strAns[i] = strconv.Itoa(ans[i+1])
+	}
+	fmt.Println(strings.Join(strAns, "\n"))
 }
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -28,11 +41,10 @@ func nextInt() int {
 	return i
 }
 
-func nextInts() []int {
-	s := strings.Split(nextLine(), " ")
-	nums := make([]int, len(s))
-	for i, v := range s {
-		nums[i], _ = strconv.Atoi(v)
+func nextInts(n int) []int {
+	nums := make([]int, n)
+	for i := 0; i < n; i++ {
+		nums[i] = nextInt()
 	}
 	return nums
 }

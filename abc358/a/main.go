@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math"
 	"os"
 	"strconv"
@@ -9,6 +10,13 @@ import (
 )
 
 func main() {
+	s := nextLine()
+	t := nextLine()
+	if s == "AtCoder" && t == "Land" {
+		fmt.Println("Yes")
+	} else {
+		fmt.Println("No")
+	}
 }
 
 var sc = bufio.NewScanner(os.Stdin)
