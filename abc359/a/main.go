@@ -2,12 +2,21 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math"
 	"os"
 	"strconv"
 )
 
 func main() {
+	n := nextInt()
+	ans := 0
+	for i := 0; i < n; i++ {
+		if nextLine() == "Takahashi" {
+			ans++
+		}
+	}
+	fmt.Println(ans)
 }
 
 var sc = bufio.NewScanner(os.Stdin)
