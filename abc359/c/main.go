@@ -2,12 +2,29 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math"
 	"os"
 	"strconv"
 )
 
 func main() {
+	sx := nextInt()
+	sy := nextInt()
+	tx := nextInt()
+	ty := nextInt()
+
+	if (sx+sy)%2 == 1 {
+		sx--
+	}
+	if (tx+ty)%2 == 1 {
+		tx--
+	}
+
+	dx := abs(sx - tx)
+	dy := abs(sy - ty)
+	ans := dy + max(0, (dx-dy)/2)
+	fmt.Println(ans)
 }
 
 var sc = bufio.NewScanner(os.Stdin)
